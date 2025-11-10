@@ -15,18 +15,18 @@ This guide walks you through setting up Azure SQL Database for the "I Just Went 
 
 1. **Subscription**: Select your Azure subscription
 2. **Resource Group**: 
-   - Create new: Click "Create new" → Name it (e.g., `IJustWentTo-RG`)
+   - Create new: Click "Create new" → Name it (e.g., `MyApp-RG`)
    - Or use existing: Select from dropdown
-3. **Database name**: `ijustwentto-db` (or any name you prefer)
+3. **Database name**: `myapp-db` (or any name you prefer)
 4. **Server**:
    - Click **Create new** (if you don't have a SQL Server yet)
-   - **Server name**: Choose a unique name (e.g., `ijustwentto-server`)
+   - **Server name**: Choose a unique name (e.g., `myapp-server`)
      - Must be globally unique
      - Only lowercase letters, numbers, and hyphens
-     - Example: `ijustwentto-server123`
+     - Example: `myapp-server123`
    - **Location**: Choose closest to you (e.g., `East US`, `West Europe`)
    - **Authentication method**: Choose **Use SQL authentication**
-   - **Server admin login**: Create username (e.g., `admin` or `ijustwentto-admin`)
+   - **Server admin login**: Create username (e.g., `admin` or `myapp-admin`)
      - **IMPORTANT**: Save this username!
    - **Password**: Create strong password
      - **IMPORTANT**: Save this password! You'll need it for .env file.
@@ -98,18 +98,18 @@ You need these details for your `.env` file:
 
 1. Go to your **SQL Server** (not the database)
 2. On the **Overview** page, you'll see:
-   - **Server name**: `ijustwentto-server.database.windows.net`
+   - **Server name**: `your-server-name.database.windows.net`
    - Copy this entire value (including `.database.windows.net`)
 
 ### 3.2 Database Name
 
 1. Go back to your **SQL Database**
 2. On the **Overview** page:
-   - **Name**: Your database name (e.g., `ijustwentto-db`)
+   - **Name**: Your database name (e.g., `myapp-db`)
 
 ### 3.3 Username and Password
 
-- **Username**: The Server admin login you created (e.g., `ijustwentto-admin`)
+- **Username**: The Server admin login you created (e.g., `myapp-admin`)
 - **Password**: The password you created
 
 ## Step 4: Configure Your .env File
@@ -123,8 +123,8 @@ You need these details for your `.env` file:
 ```env
 # Azure SQL Database Configuration
 AZURE_SQL_SERVER=your-server.database.windows.net
-AZURE_SQL_DATABASE=ijustwentto-db
-AZURE_SQL_USERNAME=ijustwentto-admin
+AZURE_SQL_DATABASE=your-database-name
+AZURE_SQL_USERNAME=your-admin-username
 AZURE_SQL_PASSWORD=your-password-here
 
 # Azure Blob Storage Configuration (set this up next)
@@ -143,10 +143,10 @@ FLASK_ENV=development
 Replace the placeholders with your actual values:
 
 ```env
-AZURE_SQL_SERVER=ijustwentto-server123.database.windows.net
-AZURE_SQL_DATABASE=ijustwentto-db
-AZURE_SQL_USERNAME=ijustwentto-admin
-AZURE_SQL_PASSWORD=YourActualPassword123!
+AZURE_SQL_SERVER=myserver123.database.windows.net
+AZURE_SQL_DATABASE=myapp-db
+AZURE_SQL_USERNAME=myapp-admin
+AZURE_SQL_PASSWORD=YourSecurePassword123!
 ```
 
 **Important Notes:**

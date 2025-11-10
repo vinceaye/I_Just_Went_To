@@ -15,12 +15,12 @@ This guide walks you through setting up Azure Blob Storage for storing photos in
 
 1. **Subscription**: Select your Azure subscription
 2. **Resource Group**: 
-   - Use the same resource group as your SQL Database (e.g., `IJustWentTo-RG`)
+   - Use the same resource group as your SQL Database (e.g., `MyApp-RG`)
    - Or create new if you prefer
 3. **Storage account name**: 
-   - Choose a unique name (e.g., `ijustwenttostorage`)
+   - Choose a unique name (e.g., `mystorageaccount`)
    - Must be globally unique (3-24 characters, lowercase letters and numbers only)
-   - Example: `ijustwenttostorage123`
+   - Example: `mystorageaccount123`
 4. **Region**: Choose closest to you (same as your SQL Database if possible)
 5. **Performance**: 
    - **Standard** (recommended for most use cases)
@@ -101,7 +101,7 @@ You need these details for your `.env` file:
 ### 3.1 Storage Account Name
 
 1. On your Storage Account **Overview** page
-2. **Name**: This is your storage account name (e.g., `ijustwenttostorage123`)
+2. **Name**: This is your storage account name (e.g., `mystorageaccount123`)
 
 ### 3.2 Storage Account URL
 
@@ -114,7 +114,7 @@ Replace `YOUR_STORAGE_ACCOUNT_NAME` with your actual account name.
 
 Or find it in:
 - **Overview** → **Primary endpoint** → Look for **Blob service** endpoint
-- Example: `https://ijustwenttostorage123.blob.core.windows.net`
+- Example: `https://mystorageaccount123.blob.core.windows.net`
 
 ### 3.3 Access Keys
 
@@ -124,7 +124,7 @@ Or find it in:
 4. Click **Show** next to one of the keys
 5. Copy the **Key** value
    - ⚠️ **Important**: Keep this secret! Never commit it to Git.
-   - Example: `abc123def456ghi789...`
+   - Example: `aVeryLongRandomStringOfCharacters...`
 
 ### 3.4 Container Name
 
@@ -144,8 +144,8 @@ AZURE_SQL_USERNAME=your-username
 AZURE_SQL_PASSWORD=your-password
 
 # Azure Blob Storage Configuration
-AZURE_STORAGE_ACCOUNT_URL=https://ijustwenttostorage123.blob.core.windows.net
-AZURE_STORAGE_ACCOUNT_NAME=ijustwenttostorage123
+AZURE_STORAGE_ACCOUNT_URL=https://your-storage-account.blob.core.windows.net
+AZURE_STORAGE_ACCOUNT_NAME=your-storage-account-name
 AZURE_STORAGE_ACCOUNT_KEY=your-actual-access-key-here
 AZURE_STORAGE_CONTAINER_NAME=photos
 
@@ -174,9 +174,9 @@ AZURE_STORAGE_CONTAINER_NAME=photos
 ### 4.3 Example (Filled In)
 
 ```env
-AZURE_STORAGE_ACCOUNT_URL=https://ijustwenttostorage123.blob.core.windows.net
-AZURE_STORAGE_ACCOUNT_NAME=ijustwenttostorage123
-AZURE_STORAGE_ACCOUNT_KEY=abc123def456ghi789jkl012mno345pqr678stu901vwx234yz
+AZURE_STORAGE_ACCOUNT_URL=https://mystorageaccount123.blob.core.windows.net
+AZURE_STORAGE_ACCOUNT_NAME=mystorageaccount123
+AZURE_STORAGE_ACCOUNT_KEY=your-actual-very-long-access-key-from-azure-portal
 AZURE_STORAGE_CONTAINER_NAME=photos
 ```
 
